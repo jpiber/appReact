@@ -45,7 +45,7 @@ const Navbar = () => {
         </ListItem>
       ))}
     </List>
-  );
+  ); 
 
   return (
     <AppBar position="static">
