@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import Flora from './pages/Flora';
 import Historia from './pages/Historia';
 import Contato from './pages/Contato';
+import Sobre from './pages/Sobre';
+import Avaliacoes from './pages/Avaliacoes';
 import Navbar from './components/Navbar';
 
 const theme = createTheme({
@@ -31,6 +33,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/flora" element={<Flora />} />
           <Route path="/historia" element={<Historia />} />
+          <Route path="/sobre" element={<Sobre />} />
+          <Route path="/avaliacoes" element={<Avaliacoes />} />
           <Route path="/contato" element={<Contato />} />
         </Routes>
       </Router>

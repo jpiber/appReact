@@ -3,6 +3,8 @@ import ParkIcon from '@mui/icons-material/Park';
 import NatureIcon from '@mui/icons-material/Nature';
 import HistoryIcon from '@mui/icons-material/History';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
+import StarIcon from '@mui/icons-material/Star';
+import InfoIcon from '@mui/icons-material/Info';
 import { Link as RouterLink } from 'react-router-dom';
 
 const Home = () => {
@@ -18,6 +20,18 @@ const Home = () => {
       title: 'História',
       description: 'A história e importância do Parque Itaimbé',
       path: '/historia',
+    },
+    {
+      icon: <StarIcon sx={{ fontSize: 40 }} />,
+      title: 'Avaliações',
+      description: 'Veja o que os visitantes dizem sobre o parque',
+      path: '/avaliacoes',
+    },
+    {
+      icon: <InfoIcon sx={{ fontSize: 40 }} />,
+      title: 'Sobre',
+      description: 'Informações detalhadas sobre o parque e suas características',
+      path: '/sobre',
     },
     {
       icon: <ContactMailIcon sx={{ fontSize: 40 }} />,
@@ -41,7 +55,7 @@ const Home = () => {
 
       <Box sx={{ 
         display: 'grid', 
-        gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr' },
+        gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr 1fr' },
         gap: 4,
         mb: 6
       }}>

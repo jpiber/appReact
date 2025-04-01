@@ -15,6 +15,7 @@ import {
   useMediaQuery,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import parkIcon from '../images/Park-icon.webp';
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -25,6 +26,8 @@ const Navbar = () => {
     { text: 'Início', path: '/' },
     { text: 'Flora', path: '/flora' },
     { text: 'História', path: '/historia' },
+    { text: 'Sobre', path: '/sobre' },
+    { text: 'Avaliações', path: '/avaliacoes' },
     { text: 'Contato', path: '/contato' },
   ];
 
@@ -50,13 +53,24 @@ const Navbar = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography
-          variant="h6"
-          component="div"
-          sx={{ flexGrow: 1, fontWeight: 'bold' }}
-        >
-          Parque Itaimbé
-        </Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
+          <img 
+            src={parkIcon}
+            alt="Ícone do Parque" 
+            style={{ 
+              width: '32px', 
+              height: '32px', 
+              marginRight: '8px' 
+            }} 
+          />
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ fontWeight: 'bold' }}
+          >
+            Parque Itaimbé
+          </Typography>
+        </Box>
 
         {isMobile ? ( 
           <>
