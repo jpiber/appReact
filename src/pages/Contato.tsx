@@ -6,11 +6,11 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 const Contato = () => {
   return (
-    <Container maxWidth="lg" sx={{ py: 1 }}>
+    <Container maxWidth="lg" sx={{ py: 4 }}>
       <Typography variant="h4" component="h1" gutterBottom align="center">
         Contato
       </Typography>
-      <Typography variant="subtitle1" color="text.secondary" paragraph align="center" sx={{ mb: 2 }}>
+      <Typography variant="subtitle1" color="text.secondary" paragraph align="center" sx={{ mb: 4 }}>
         Entre em contato conosco e saiba mais sobre o Parque Itaimbé
       </Typography>
 

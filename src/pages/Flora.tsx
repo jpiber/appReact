@@ -1,4 +1,4 @@
-import { Container, Typography, Grid, Card, CardContent, CardMedia, Box, TextField } from '@mui/material';
+import { Container, Typography, Card, CardContent, CardMedia, Box, TextField } from '@mui/material';
 import { useState } from 'react';
 import ipê from '../images/palmeira.jpg.webp';
 import orquidea from '../images/orquidea.jpg.webp';

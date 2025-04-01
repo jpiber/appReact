@@ -36,7 +36,6 @@ const Navbar = () => {
     <List>
       {menuItems.map((item) => (
         <ListItem
-          button
           key={item.text}
           component={RouterLink}
           to={item.path}
