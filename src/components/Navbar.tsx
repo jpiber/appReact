@@ -58,7 +58,7 @@ const Navbar = () => {
           Parque Itaimbé
         </Typography>
 
-        {isMobile ? (
+        {isMobile ? ( 
           <>
             <IconButton
               color="inherit"
