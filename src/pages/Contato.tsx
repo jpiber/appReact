@@ -23,7 +23,7 @@ const Contato = () => {
           <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
             <LocationOnIcon sx={{ mr: 1, color: 'primary.main' }} />
             <Typography>
-              Av. Presidente Vargas, 1234 - Centro, Santa Maria - RS
+                Av. Itaimbé Centro, Santa Maria, Rio Grande do Sul 97010-490 Brasil
             </Typography>
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>

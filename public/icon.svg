@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fundo verde -->
+  <rect width="192" height="192" fill="#2E7D32"/>
+  
+  <!-- Tronco da árvore -->
+  <path d="M88 120V160H104V120H88Z" fill="#5D4037"/>
+  
+  <!-- Copa da árvore -->
+  <path d="M96 40C76 40 60 56 60 76C60 96 76 112 96 112C116 112 132 96 132 76C132 56 116 40 96 40ZM96 104C82 104 72 94 72 80C72 66 82 56 96 56C110 56 120 66 120 80C120 94 110 104 96 104Z" fill="#81C784"/>
+  
+  <!-- Detalhes da copa -->
+  <path d="M96 48C86 48 78 56 78 66C78 76 86 84 96 84C106 84 114 76 114 66C114 56 106 48 96 48ZM96 80C90 80 86 76 86 70C86 64 90 60 96 60C102 60 106 64 106 70C106 76 102 80 96 80Z" fill="#A5D6A7"/>
+  
+  <!-- Folhas decorativas -->
+  <path d="M96 52C92 52 90 54 90 58C90 62 92 64 96 64C100 64 102 62 102 58C102 54 100 52 96 52Z" fill="#C8E6C9"/>
+  <path d="M96 68C92 68 90 70 90 74C90 78 92 80 96 80C100 80 102 78 102 74C102 70 100 68 96 68Z" fill="#C8E6C9"/>
+</svg> 
