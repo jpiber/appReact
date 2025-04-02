@@ -7,12 +7,52 @@
   "orientation": "portrait",
   "background_color": "#2E7D32",
   "theme_color": "#2E7D32",
+  "categories": ["nature", "parks", "tourism"],
   "icons": [
     {
       "src": "/icon.svg",
       "sizes": "192x192",
       "type": "image/svg+xml",
       "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot1.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Tela inicial do Parque Itaimbe"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Início",
+      "short_name": "Início",
+      "description": "Voltar para a página inicial",
+      "url": "/",
+      "icons": [{ "src": "/icon.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Flora",
+      "short_name": "Flora",
+      "description": "Conheça a flora do parque",
+      "url": "/flora",
+      "icons": [{ "src": "/icon.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "História",
+      "short_name": "História",
+      "description": "História do Parque Itaimbe",
+      "url": "/historia",
+      "icons": [{ "src": "/icon.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Contato",
+      "short_name": "Contato",
+      "description": "Entre em contato",
+      "url": "/contato",
+      "icons": [{ "src": "/icon.svg", "sizes": "192x192" }]
     }
   ]
 } 
