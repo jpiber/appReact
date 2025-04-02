@@ -11,9 +11,9 @@ import {
 } from '@mui/material';
 import { createClient } from '@supabase/supabase-js';
 
-// Inicializa o cliente Supabase
-const supabaseUrl = 'https://seu-projeto.supabase.co';
-const supabaseKey = 'sua-chave-anon';
+// Inicializa o cliente Supabase com as variáveis de ambiente
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 interface Avaliacao {
@@ -22,11 +22,13 @@ interface Avaliacao {
   comentario: string;
   data: string;
   usuario: string;
+  nome: string;
 }
 
 const Avaliacoes = () => {
   const [nota, setNota] = useState<number | null>(0);
   const [comentario, setComentario] = useState('');
+  const [nome, setNome] = useState('');
   const [avaliacoes, setAvaliacoes] = useState<Avaliacao[]>([]);
   const [loading, setLoading] = useState(true);
   const [media, setMedia] = useState(0);
@@ -59,26 +61,27 @@ const Avaliacoes = () => {
   };
 
   const enviarAvaliacao = async () => {
-    if (!nota || !comentario) return;
+    if (!nota || !comentario || !nome) return;
 
     try {
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('avaliacoes')
         .insert([
           {
             nota,
             comentario,
             data: new Date().toISOString(),
-            usuario: 'Anônimo', // Você pode implementar autenticação depois
+            usuario: 'Anônimo',
+            nome: nome.trim()
           },
-        ])
-        .select();
+        ]);
 
       if (error) throw error;
 
       // Limpa o formulário e recarrega as avaliações
       setNota(0);
       setComentario('');
+      setNome('');
       carregarAvaliacoes();
     } catch (error) {
       console.error('Erro ao enviar avaliação:', error);
@@ -94,60 +97,80 @@ const Avaliacoes = () => {
   }
 
   return (
-    <Box sx={{ mt: 4 }}>
-      <Typography variant="h5" gutterBottom>
+    <Box sx={{ maxWidth: 800, mx: 'auto', p: 3 }}>
+      <Typography variant="h4" component="h1" gutterBottom>
         Avaliações do Parque
       </Typography>
-      
-      <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-        <Typography variant="h6" sx={{ mr: 1 }}>
-          Média:
-        </Typography>
-        <Rating value={media} precision={0.1} readOnly />
-        <Typography variant="body1" sx={{ ml: 1 }}>
-          ({avaliacoes.length} avaliações)
-        </Typography>
-      </Box>
 
-      <Paper sx={{ p: 3, mb: 3 }}>
+      {/* Formulário de Avaliação */}
+      <Paper sx={{ p: 3, mb: 4 }}>
         <Typography variant="h6" gutterBottom>
-          Deixe sua avaliação
+          Deixe sua Avaliação
         </Typography>
         <Stack spacing={2}>
-          <Rating
-            value={nota}
-            onChange={(_, newValue) => setNota(newValue)}
-            size="large"
-          />
           <TextField
-            multiline
-            rows={3}
-            label="Seu comentário"
+            label="Seu Nome"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            required
+            fullWidth
+          />
+          <Box>
+            <Typography component="legend">Nota</Typography>
+            <Rating
+              value={nota}
+              onChange={(_, newValue) => setNota(newValue)}
+              precision={0.5}
+            />
+          </Box>
+          <TextField
+            label="Comentário"
             value={comentario}
             onChange={(e) => setComentario(e.target.value)}
+            multiline
+            rows={4}
+            required
+            fullWidth
           />
           <Button
             variant="contained"
             onClick={enviarAvaliacao}
-            disabled={!nota || !comentario}
+            disabled={!nota || !comentario || !nome}
           >
             Enviar Avaliação
           </Button>
         </Stack>
       </Paper>
 
+      {/* Média das Avaliações */}
+      <Paper sx={{ p: 2, mb: 4, textAlign: 'center' }}>
+        <Typography variant="h6" gutterBottom>
+          Média das Avaliações
+        </Typography>
+        <Rating value={media} precision={0.5} readOnly />
+        <Typography variant="body1" sx={{ mt: 1 }}>
+          {media.toFixed(1)} / 5.0
+        </Typography>
+      </Paper>
+
+      {/* Lista de Avaliações */}
+      <Typography variant="h5" gutterBottom>
+        Avaliações Recentes
+      </Typography>
       <Stack spacing={2}>
         {avaliacoes.map((avaliacao) => (
           <Paper key={avaliacao.id} sx={{ p: 2 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-              <Rating value={avaliacao.nota} readOnly size="small" />
-              <Typography variant="body2" sx={{ ml: 1 }}>
-                {new Date(avaliacao.data).toLocaleDateString('pt-BR')}
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
+              <Typography variant="subtitle1" fontWeight="bold">
+                {avaliacao.nome}
               </Typography>
+              <Rating value={avaliacao.nota} readOnly size="small" />
             </Box>
-            <Typography variant="body1">{avaliacao.comentario}</Typography>
-            <Typography variant="caption" color="text.secondary">
-              Por: {avaliacao.usuario}
+            <Typography variant="body2" color="text.secondary" gutterBottom>
+              {new Date(avaliacao.data).toLocaleDateString('pt-BR')}
+            </Typography>
+            <Typography variant="body1">
+              {avaliacao.comentario}
             </Typography>
           </Paper>
         ))}

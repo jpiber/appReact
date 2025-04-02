@@ -3,6 +3,11 @@ import { useState } from 'react';
 import ipê from '../images/palmeira.jpg.webp';
 import orquidea from '../images/orquidea.jpg.webp';
 import bromelia from '../images/bromelia.jpg.webp';
+import taquareira from '../images/taquareira.jpg.png';
+import inga from '../images/inga.jpg.png';
+import canafistula from '../images/canafistula.jpg.png';
+import ameixa from '../images/ameixa.jpg.png';
+import joaobolao from '../images/joaobolao.jpg.png';
 
 const Flora = () => {
   const [busca, setBusca] = useState('');
@@ -42,6 +47,66 @@ const Flora = () => {
         'Acumula água nas folhas',
         'Habitat para insetos',
         'Flores coloridas'
+      ]
+    },
+    {
+      nome: 'Taquareira',
+      descricao: 'A Taquareira é uma árvore nativa que se destaca por sua copa densa e folhagem perene. No Parque Itaimbé, estas árvores proporcionam sombra e abrigo para diversas espécies de aves e outros animais. Suas flores discretas mas perfumadas contribuem para a biodiversidade local.',
+      imagem: taquareira,
+      categoria: 'Árvores',
+      caracteristicas: [
+        'Copa densa',
+        'Folhagem perene',
+        'Flores perfumadas',
+        'Abrigo para aves'
+      ]
+    },
+    {
+      nome: 'Ingá',
+      descricao: 'O Ingá é uma árvore frutífera nativa que produz vagens com sementes comestíveis. No Parque Itaimbé, estas árvores são importantes para a fauna local, fornecendo alimento para aves e outros animais. Suas flores brancas e perfumadas atraem diversos polinizadores.',
+      imagem: inga,
+      categoria: 'Árvores',
+      caracteristicas: [
+        'Produz frutos comestíveis',
+        'Flores brancas e perfumadas',
+        'Atrai polinizadores',
+        'Importante para fauna local'
+      ]
+    },
+    {
+      nome: 'Canafístula',
+      descricao: 'A Canafístula é uma árvore ornamental que se destaca por suas flores amarelas em cachos. No Parque Itaimbé, estas árvores contribuem para a beleza paisagística e são importantes para a biodiversidade local. Sua madeira é resistente e pode ser utilizada em diversos fins.',
+      imagem: canafistula,
+      categoria: 'Árvores',
+      caracteristicas: [
+        'Flores amarelas em cachos',
+        'Madeira resistente',
+        'Valor ornamental',
+        'Importante para biodiversidade'
+      ]
+    },
+    {
+      nome: 'Ameixa',
+      descricao: 'A Ameixa é uma árvore frutífera que produz frutos doces e saborosos. No Parque Itaimbé, estas árvores são apreciadas tanto por sua beleza quanto por seus frutos. Suas flores brancas e rosadas são um espetáculo visual durante a primavera.',
+      imagem: ameixa,
+      categoria: 'Árvores',
+      caracteristicas: [
+        'Produz frutos comestíveis',
+        'Flores brancas e rosadas',
+        'Floração na primavera',
+        'Valor ornamental e frutífero'
+      ]
+    },
+    {
+      nome: 'João Bolão',
+      descricao: 'O João Bolão é uma árvore nativa que se destaca por seu tronco robusto e copa arredondada. No Parque Itaimbé, estas árvores são importantes para a paisagem e para a fauna local. Suas flores são discretas mas contribuem para a biodiversidade do parque.',
+      imagem: joaobolao,
+      categoria: 'Árvores',
+      caracteristicas: [
+        'Tronco robusto',
+        'Copa arredondada',
+        'Flores discretas',
+        'Importante para paisagem'
       ]
     }
   ];

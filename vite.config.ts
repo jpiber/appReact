@@ -1,23 +1,16 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/appReact/',
+  base: '/',
   server: {
-    host: '0.0.0.0',
     port: 3000,
-    strictPort: true
+    host: true
   },
   build: {
     outDir: 'dist',
-    assetsDir: 'assets',
-    emptyOutDir: true,
-    rollupOptions: {
-      output: {
-        manualChunks: undefined
-      }
-    }
+    sourcemap: true
   }
 })
