@@ -9,6 +9,7 @@ import Historia from './pages/Historia';
 import Contato from './pages/Contato';
 import Sobre from './pages/Sobre';
 import Avaliacoes from './pages/Avaliacoes';
+import Preservacao from './pages/Preservacao';
 import { InstallScreen } from './components/InstallScreen';
 
 // Declaração de tipo para a propriedade standalone
@@ -95,6 +96,7 @@ function App() {
               <Route path="/sobre" element={<Sobre />} />
               <Route path="/avaliacoes" element={<Avaliacoes />} />
               <Route path="/contato" element={<Contato />} />
+              <Route path="/preservacao" element={<Preservacao />} />
             </Routes>
           </main>
         </div>

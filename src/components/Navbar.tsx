@@ -29,6 +29,7 @@ const Navbar = () => {
     { text: 'Sobre', path: '/sobre' },
     { text: 'Avaliações', path: '/avaliacoes' },
     { text: 'Contato', path: '/contato' },
+    { text: 'Preservação', path: '/preservacao' },
   ];
 
   const handleDrawerToggle = () => {
@@ -43,6 +44,15 @@ const Navbar = () => {
           component={RouterLink}
           to={item.path}
           onClick={handleDrawerToggle}
+          sx={{
+            color: 'black',
+            '&:hover': {
+              bgcolor: 'rgba(255, 255, 255, 0.1)',
+            },
+            '& .MuiListItemText-primary': {
+              color: 'black',
+            }
+          }}
         >
           <ListItemText primary={item.text} />
         </ListItem>
@@ -89,6 +99,11 @@ const Navbar = () => {
               onClose={handleDrawerToggle}
               ModalProps={{
                 keepMounted: true,
+              }}
+              PaperProps={{
+                sx: {
+                  bgcolor: '#2E7D32',
+                }
               }}
             >
               {drawer}

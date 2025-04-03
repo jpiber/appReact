@@ -1,50 +1,52 @@
 import { Container, Typography, Box, Card, CardContent } from '@mui/material';
-import ParkIcon from '@mui/icons-material/Park';
-import NatureIcon from '@mui/icons-material/Nature';
-import HistoryIcon from '@mui/icons-material/History';
-import ContactMailIcon from '@mui/icons-material/ContactMail';
-import StarIcon from '@mui/icons-material/Star';
-import InfoIcon from '@mui/icons-material/Info';
 import { Link as RouterLink } from 'react-router-dom';
 
 const Home = () => {
   const features = [
     {
-      icon: <NatureIcon sx={{ fontSize: 40 }} />,
+      icon: '🌿',
       title: 'Flora',
       description: 'Conheça a diversidade de plantas e árvores do parque',
       path: '/flora',
     },
     {
-      icon: <HistoryIcon sx={{ fontSize: 40 }} />,
+      icon: '📚',
       title: 'História',
       description: 'A história e importância do Parque Itaimbé',
       path: '/historia',
     },
     {
-      icon: <StarIcon sx={{ fontSize: 40 }} />,
+      icon: '⭐',
       title: 'Avaliações',
       description: 'Veja o que os visitantes dizem sobre o parque',
       path: '/avaliacoes',
     },
     {
-      icon: <InfoIcon sx={{ fontSize: 40 }} />,
+      icon: 'ℹ️',
       title: 'Sobre',
       description: 'Informações detalhadas sobre o parque e suas características',
       path: '/sobre',
     },
     {
-      icon: <ContactMailIcon sx={{ fontSize: 40 }} />,
+      icon: '📧',
       title: 'Contato',
       description: 'Informações e formas de contato',
       path: '/contato',
+    },
+    {
+      icon: '🌍',
+      title: 'Preservação Ambiental',
+      description: 'Saiba como preservar o meio ambiente',
+      path: '/preservacao',
     },
   ];
 
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <Box sx={{ textAlign: 'center', mb: 6 }}>
-        <ParkIcon sx={{ fontSize: 60, color: 'primary.main', mb: 2 }} />
+        <Typography variant="h1" sx={{ fontSize: '3rem', mb: 2 }}>
+          🌳
+        </Typography>
         <Typography variant="h3" component="h1" gutterBottom>
           Parque Itaimbé
         </Typography>
@@ -55,7 +57,7 @@ const Home = () => {
 
       <Box sx={{ 
         display: 'grid', 
-        gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr 1fr' },
+        gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr' },
         gap: 4,
         mb: 6
       }}>
@@ -77,9 +79,9 @@ const Home = () => {
             }}
           >
             <CardContent sx={{ textAlign: 'center' }}>
-              <Box sx={{ color: 'primary.main', mb: 2 }}>
+              <Typography variant="h2" sx={{ fontSize: '2.5rem', mb: 2, color: 'primary.main' }}>
                 {feature.icon}
-              </Box>
+              </Typography>
               <Typography variant="h5" component="h2" gutterBottom>
                 {feature.title}
               </Typography>
@@ -98,8 +100,7 @@ const Home = () => {
         <Typography paragraph>
           O Parque Itaimbé é um importante espaço verde localizado em Santa Maria, Rio Grande do Sul.
           Este parque urbano oferece uma oportunidade única para os moradores e visitantes
-          se conectarem com a natureza, praticarem atividades físicas e apreciarem a
-          biodiversidade local.
+          desfrutarem da natureza e do lazer ao ar livre. 🌿
         </Typography>
       </Box>
     </Container>

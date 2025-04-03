@@ -1,22 +1,62 @@
-import { Container, Typography, Card, CardContent, CardMedia, Box, TextField } from '@mui/material';
+import { Container, Typography, Card, CardContent, CardMedia, Box, TextField, IconButton } from '@mui/material';
 import { useState } from 'react';
-import ipê from '../images/palmeira.jpg.webp';
-import orquidea from '../images/orquidea.jpg.webp';
-import bromelia from '../images/bromelia.jpg.webp';
-import taquareira from '../images/taquareira.jpg.png';
-import inga from '../images/inga.jpg.png';
-import canafistula from '../images/canafistula.jpg.png';
-import ameixa from '../images/ameixa.jpg.png';
-import joaobolao from '../images/joaobolao.jpg.png';
+import ipe1 from '../images/ipeamarelo1.jpg.jpg';
+import ipe2 from '../images/ipeamarelo2.jpg.jpg';
+import ipe3 from '../images/ipeamarelo3.jpg.webp';
+import orquidea1 from '../images/orquidea1.jpg.webp';
+import orquidea2 from '../images/orquidea2.jpg.jpg';
+import orquidea3 from '../images/orquidea3.jpg.webp';
+import taquareira1 from '../images/taquareira1.jpg.png';
+import taquareira2 from '../images/taquareira2.jpg.jpg';
+import taquareira3 from '../images/taquareira3.jpg.jpg';
+import anga1 from '../images/angá1.jpg.png';
+import anga2 from '../images/angá2.jpg.webp';
+import anga3 from '../images/angá3.jpg.webp';
+import canafistula1 from '../images/canafistula1.jpg.png';
+import canafistula2 from '../images/canafistula2.jpg.webp';
+import canafistula3 from '../images/canafistula3.jpg.webp';
+import ameixa1 from '../images/ameixa1.jpg.png';
+import ameixa2 from '../images/ameixa2.jpg.jfif';
+import ameixa3 from '../images/ameixa3.jpg.jpg';
+import bananeira1 from '../images/bananeira1.jpg.jpg';
+import bananeira2 from '../images/bananeira2.jpg.jpg';
+import bananeira3 from '../images/bananeira3.jpg.jpg';
+import laranjeira1 from '../images/laranjeira1.jpg.jpg';
+import laranjeira2 from '../images/laranjeira2.jpg.webp';
+import laranjeira3 from '../images/laranjeira3.jpg.jpg';
+import jambolao1 from '../images/jambolao1.jpg.webp';
+import jambolao2 from '../images/jambolao2.jpg.jpeg';
+import jambolao3 from '../images/jambolao3.jpg.webp';
+import abacateiro1 from '../images/abacateiro1.jpg.jpg';
+import abacateiro2 from '../images/abacateiro2.jpg.jpg';
+import abacateiro3 from '../images/abacateiro3.jpg.jpg';
+import bergamoteira1 from '../images/bergamoteira1.jpg.jpg';
+import bergamoteira2 from '../images/bergamoteira2.jpg.jpg';
+import bergamoteira3 from '../images/bergamoteira3.jpg.jpg';
+import pitangueira1 from '../images/pitangueira1.jpg.jpg';
+import pitangueira2 from '../images/pitangueira2.jpg.jpg';
+import pitangueira3 from '../images/pitangueira3.jpg.jpg';
+import figueira1 from '../images/figueira1.jpg.jpg';
+import figueira2 from '../images/figueira2.jpg.jpg';
+import figueira3 from '../images/figueira3.jpg.jpg';
+import amoreira1 from '../images/amoreira1.jpg.jpeg';
+import amoreira2 from '../images/amoreira2.jpg.jpeg';
+import amoreira3 from '../images/amoreira3.jpg.jpeg';
+import hibisco1 from '../images/hibisco1.jpg.webp';
+import hibisco2 from '../images/hibisco2.jpg.webp';
+import hibisco3 from '../images/hibisco3.jpg.webp';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const Flora = () => {
   const [busca, setBusca] = useState('');
+  const [currentImageIndices, setCurrentImageIndices] = useState<{ [key: string]: number }>({});
 
   const plantas = [
     {
       nome: 'Ipê Amarelo',
       descricao: 'O Ipê Amarelo (Handroanthus chrysotrichus) é uma árvore nativa brasileira que se destaca por suas flores amarelas vibrantes. No Parque Itaimbé, estas árvores florescem durante o inverno, criando um espetáculo visual impressionante. A espécie é resistente e adapta-se bem ao clima de Santa Maria, podendo atingir até 15 metros de altura. Suas flores atraem diversos polinizadores, contribuindo para a biodiversidade local.',
-      imagem: ipê,
+      imagens: [ipe1, ipe2, ipe3],
       categoria: 'Árvores',
       caracteristicas: [
         'Floração no inverno',
@@ -28,7 +68,7 @@ const Flora = () => {
     {
       nome: 'Orquídea',
       descricao: 'As orquídeas do Parque Itaimbé representam uma diversidade de espécies epífitas que crescem sobre as árvores. Estas plantas são especialmente importantes para o ecossistema local, pois indicam a qualidade do ar e a saúde da floresta. As orquídeas do parque incluem espécies nativas e algumas espécies cultivadas, criando um ambiente rico em biodiversidade.',
-      imagem: orquidea,
+      imagens: [orquidea1, orquidea2, orquidea3],
       categoria: 'Flores',
       caracteristicas: [
         'Plantas epífitas',
@@ -38,21 +78,9 @@ const Flora = () => {
       ]
     },
     {
-      nome: 'Bromélias',
-      descricao: 'As bromélias são plantas fascinantes que podem ser encontradas em abundância no Parque Itaimbé. Estas plantas formam pequenos ecossistemas em suas folhas, acumulando água e servindo como habitat para diversos insetos e pequenos animais. Suas flores coloridas e folhas em roseta são características marcantes da paisagem do parque.',
-      imagem: bromelia,
-      categoria: 'Plantas',
-      caracteristicas: [
-        'Forma pequenos ecossistemas',
-        'Acumula água nas folhas',
-        'Habitat para insetos',
-        'Flores coloridas'
-      ]
-    },
-    {
       nome: 'Taquareira',
       descricao: 'A Taquareira é uma árvore nativa que se destaca por sua copa densa e folhagem perene. No Parque Itaimbé, estas árvores proporcionam sombra e abrigo para diversas espécies de aves e outros animais. Suas flores discretas mas perfumadas contribuem para a biodiversidade local.',
-      imagem: taquareira,
+      imagens: [taquareira1, taquareira2, taquareira3],
       categoria: 'Árvores',
       caracteristicas: [
         'Copa densa',
@@ -62,9 +90,9 @@ const Flora = () => {
       ]
     },
     {
-      nome: 'Ingá',
-      descricao: 'O Ingá é uma árvore frutífera nativa que produz vagens com sementes comestíveis. No Parque Itaimbé, estas árvores são importantes para a fauna local, fornecendo alimento para aves e outros animais. Suas flores brancas e perfumadas atraem diversos polinizadores.',
-      imagem: inga,
+      nome: 'Angá',
+      descricao: 'O Angá é uma árvore frutífera nativa que produz vagens com sementes comestíveis. No Parque Itaimbé, estas árvores são importantes para a fauna local, fornecendo alimento para aves e outros animais. Suas flores brancas e perfumadas atraem diversos polinizadores.',
+      imagens: [anga1, anga2, anga3],
       categoria: 'Árvores',
       caracteristicas: [
         'Produz frutos comestíveis',
@@ -76,7 +104,7 @@ const Flora = () => {
     {
       nome: 'Canafístula',
       descricao: 'A Canafístula é uma árvore ornamental que se destaca por suas flores amarelas em cachos. No Parque Itaimbé, estas árvores contribuem para a beleza paisagística e são importantes para a biodiversidade local. Sua madeira é resistente e pode ser utilizada em diversos fins.',
-      imagem: canafistula,
+      imagens: [canafistula1, canafistula2, canafistula3],
       categoria: 'Árvores',
       caracteristicas: [
         'Flores amarelas em cachos',
@@ -88,7 +116,7 @@ const Flora = () => {
     {
       nome: 'Ameixa',
       descricao: 'A Ameixa é uma árvore frutífera que produz frutos doces e saborosos. No Parque Itaimbé, estas árvores são apreciadas tanto por sua beleza quanto por seus frutos. Suas flores brancas e rosadas são um espetáculo visual durante a primavera.',
-      imagem: ameixa,
+      imagens: [ameixa1, ameixa2, ameixa3],
       categoria: 'Árvores',
       caracteristicas: [
         'Produz frutos comestíveis',
@@ -98,21 +126,137 @@ const Flora = () => {
       ]
     },
     {
-      nome: 'João Bolão',
-      descricao: 'O João Bolão é uma árvore nativa que se destaca por seu tronco robusto e copa arredondada. No Parque Itaimbé, estas árvores são importantes para a paisagem e para a fauna local. Suas flores são discretas mas contribuem para a biodiversidade do parque.',
-      imagem: joaobolao,
+      nome: 'Bananeira',
+      descricao: 'As bananeiras do Parque Itaimbé são espécies frutíferas que contribuem para a diversidade do parque. Estas plantas, com suas folhas grandes e verdes, criam áreas de sombra e umidade, beneficiando outras espécies vegetais. Suas flores e frutos são importantes para a fauna local, especialmente para aves e insetos polinizadores.',
+      imagens: [bananeira1, bananeira2, bananeira3],
+      categoria: 'Frutíferas',
+      caracteristicas: [
+        'Folhas grandes e verdes',
+        'Produz frutos comestíveis',
+        'Cria áreas de sombra',
+        'Importante para polinizadores'
+      ]
+    },
+    {
+      nome: 'Laranjeira',
+      descricao: 'A Laranjeira é uma árvore frutífera que se destaca no Parque Itaimbé por sua beleza e produção de frutos. Com suas flores brancas e perfumadas, atrai diversos polinizadores e contribui para a biodiversidade local. Os frutos, além de serem apreciados por visitantes, servem como alimento para a fauna do parque.',
+      imagens: [laranjeira1, laranjeira2, laranjeira3],
+      categoria: 'Frutíferas',
+      caracteristicas: [
+        'Flores brancas e perfumadas',
+        'Produz frutos comestíveis',
+        'Atrai polinizadores',
+        'Importante para fauna local'
+      ]
+    },
+    {
+      nome: 'Jambolão',
+      descricao: 'O Jambolão é uma árvore frutífera que se destaca no Parque Itaimbé por sua beleza e produção de frutos roxos. Com suas flores brancas e perfumadas, atrai diversos polinizadores e contribui para a biodiversidade local. Os frutos, além de serem apreciados por visitantes, servem como alimento para a fauna do parque, especialmente aves.',
+      imagens: [jambolao1, jambolao2, jambolao3],
+      categoria: 'Frutíferas',
+      caracteristicas: [
+        'Flores brancas e perfumadas',
+        'Produz frutos roxos comestíveis',
+        'Atrai polinizadores',
+        'Importante para aves e fauna local'
+      ]
+    },
+    {
+      nome: 'Abacateiro',
+      descricao: 'O Abacateiro é uma árvore frutífera que se destaca no Parque Itaimbé por sua copa densa e produção de frutos nutritivos. Com suas flores pequenas e discretas, atrai diversos polinizadores e contribui para a biodiversidade local. Os frutos, além de serem apreciados por visitantes, servem como alimento para a fauna do parque, especialmente aves e pequenos mamíferos.',
+      imagens: [abacateiro1, abacateiro2, abacateiro3],
+      categoria: 'Frutíferas',
+      caracteristicas: [
+        'Copa densa e sombreada',
+        'Produz frutos nutritivos',
+        'Atrai polinizadores',
+        'Importante para aves e pequenos mamíferos'
+      ]
+    },
+    {
+      nome: 'Bergamoteira',
+      descricao: 'A Bergamoteira é uma árvore frutífera que se destaca no Parque Itaimbé por sua beleza e produção de frutos cítricos. Com suas flores brancas e perfumadas, atrai diversos polinizadores e contribui para a biodiversidade local. Os frutos, além de serem apreciados por visitantes, servem como alimento para a fauna do parque, especialmente aves e insetos.',
+      imagens: [bergamoteira1, bergamoteira2, bergamoteira3],
+      categoria: 'Frutíferas',
+      caracteristicas: [
+        'Flores brancas e perfumadas',
+        'Produz frutos cítricos',
+        'Atrai polinizadores',
+        'Importante para aves e insetos'
+      ]
+    },
+    {
+      nome: 'Pitangueira',
+      descricao: 'A Pitangueira é uma árvore frutífera nativa que se destaca no Parque Itaimbé por sua beleza e produção de frutos saborosos. Com suas flores brancas e perfumadas, atrai diversos polinizadores e contribui para a biodiversidade local. Os frutos, além de serem apreciados por visitantes, servem como alimento para a fauna do parque, especialmente aves e pequenos mamíferos.',
+      imagens: [pitangueira1, pitangueira2, pitangueira3],
+      categoria: 'Frutíferas',
+      caracteristicas: [
+        'Flores brancas e perfumadas',
+        'Produz frutos vermelhos comestíveis',
+        'Atrai polinizadores',
+        'Importante para aves e pequenos mamíferos'
+      ]
+    },
+    {
+      nome: 'Figueira',
+      descricao: 'A Figueira é uma árvore majestosa que se destaca no Parque Itaimbé por sua copa ampla e imponente. Com suas raízes aéreas características e folhas grandes, cria um ambiente único e sombreado. Sua presença é fundamental para a biodiversidade local, fornecendo abrigo e alimento para diversas espécies de aves e outros animais.',
+      imagens: [figueira1, figueira2, figueira3],
       categoria: 'Árvores',
       caracteristicas: [
-        'Tronco robusto',
-        'Copa arredondada',
-        'Flores discretas',
-        'Importante para paisagem'
+        'Copa ampla e sombreada',
+        'Raízes aéreas características',
+        'Folhas grandes e verdes',
+        'Importante para fauna local'
+      ]
+    },
+    {
+      nome: 'Amoreira',
+      descricao: 'A Amoreira é uma árvore frutífera que se destaca no Parque Itaimbé por sua produção de frutos doces e nutritivos. Com suas folhas verdes e copa densa, proporciona sombra e abrigo para diversas espécies. Sua presença é importante para a biodiversidade local, fornecendo alimento para aves e outros animais.',
+      imagens: [amoreira1, amoreira2, amoreira3],
+      categoria: 'Frutíferas',
+      caracteristicas: [
+        'Produz frutos doces e nutritivos',
+        'Copa densa e sombreada',
+        'Folhas verdes e exuberantes',
+        'Importante para fauna local'
+      ]
+    },
+    {
+      nome: 'Hibisco',
+      descricao: 'O Hibisco é uma planta ornamental que se destaca no Parque Itaimbé por suas flores vibrantes e coloridas. Com suas pétalas grandes e vistosas, atrai diversos polinizadores e contribui para a biodiversidade local. Sua presença é importante para a fauna do parque, especialmente para insetos e aves.',
+      imagens: [hibisco1, hibisco2, hibisco3],
+      categoria: 'Flores',
+      caracteristicas: [
+        'Flores vibrantes e coloridas',
+        'Pétalas grandes e vistosas',
+        'Atrai polinizadores',
+        'Importante para fauna local'
       ]
     }
   ];
 
+  const handleNextImage = (planta: any) => {
+    if (Array.isArray(planta.imagens)) {
+      setCurrentImageIndices(prev => ({
+        ...prev,
+        [planta.nome]: ((prev[planta.nome] || 0) + 1) % planta.imagens.length
+      }));
+    }
+  };
+
+  const handlePrevImage = (planta: any) => {
+    if (Array.isArray(planta.imagens)) {
+      setCurrentImageIndices(prev => ({
+        ...prev,
+        [planta.nome]: ((prev[planta.nome] || 0) - 1 + planta.imagens.length) % planta.imagens.length
+      }));
+    }
+  };
+
   const plantasFiltradas = plantas.filter(planta =>
-    planta.nome.toLowerCase().includes(busca.toLowerCase())
+    planta.nome.toLowerCase().includes(busca.toLowerCase()) ||
+    planta.descricao.toLowerCase().includes(busca.toLowerCase()) ||
+    planta.categoria.toLowerCase().includes(busca.toLowerCase())
   );
 
   return (
@@ -152,13 +296,67 @@ const Flora = () => {
               },
             }}
           >
-            <CardMedia
-              component="img"
-              height="300"
-              image={planta.imagem}
-              alt={planta.nome}
-              sx={{ objectFit: 'cover' }}
-            />
+            <Box sx={{ position: 'relative' }}>
+              <CardMedia
+                component="img"
+                height="300"
+                image={planta.imagens[currentImageIndices[planta.nome] || 0]}
+                alt={planta.nome}
+                sx={{ objectFit: 'cover' }}
+              />
+              {planta.imagens.length > 1 && (
+                <>
+                  <IconButton
+                    onClick={() => handlePrevImage(planta)}
+                    sx={{
+                      position: 'absolute',
+                      left: 8,
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      bgcolor: 'rgba(255, 255, 255, 0.8)',
+                      '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
+                    }}
+                  >
+                    <ArrowBackIosNewIcon />
+                  </IconButton>
+                  <IconButton
+                    onClick={() => handleNextImage(planta)}
+                    sx={{
+                      position: 'absolute',
+                      right: 8,
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      bgcolor: 'rgba(255, 255, 255, 0.8)',
+                      '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
+                    }}
+                  >
+                    <ArrowForwardIosIcon />
+                  </IconButton>
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      bottom: 8,
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      display: 'flex',
+                      gap: 1,
+                    }}
+                  >
+                    {planta.imagens.map((_, index) => (
+                      <Box
+                        key={index}
+                        sx={{
+                          width: 8,
+                          height: 8,
+                          borderRadius: '50%',
+                          bgcolor: index === (currentImageIndices[planta.nome] || 0) ? 'primary.main' : 'rgba(255, 255, 255, 0.8)',
+                        }}
+                      />
+                    ))}
+                  </Box>
+                </>
+              )}
+            </Box>
             <CardContent>
               <Typography variant="h6" component="h2" gutterBottom>
                 {planta.nome}
