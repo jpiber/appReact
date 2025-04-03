@@ -1,4 +1,4 @@
-import { Container, Typography, Card, CardContent, CardMedia, Box, TextField, IconButton, List, ListItem, ListItemText } from '@mui/material';
+import { Container, Typography, Card, CardContent, CardMedia, Box, TextField, IconButton, List, ListItem, ListItemText, Button, ButtonGroup } from '@mui/material';
 import { useState } from 'react';
 import ipe1 from '../images/ipeamarelo1.jpg.jpg';
 import ipe2 from '../images/ipeamarelo2.jpg.jpg';
@@ -75,6 +75,7 @@ import beijaflor3 from '../images/beijaflor3.jpg';
 const Flora = () => {
   const [busca, setBusca] = useState('');
   const [currentImageIndices, setCurrentImageIndices] = useState<{ [key: string]: number }>({});
+  const [categoriaAtiva, setCategoriaAtiva] = useState<'todas' | 'plantas' | 'aves'>('todas');
 
   const plantas = [
     {
@@ -382,6 +383,12 @@ const Flora = () => {
     planta.categoria.toLowerCase().includes(busca.toLowerCase())
   );
 
+  const avesFiltradas = aves.filter(ave =>
+    ave.nome.toLowerCase().includes(busca.toLowerCase()) ||
+    ave.descricao.toLowerCase().includes(busca.toLowerCase()) ||
+    ave.categoria.toLowerCase().includes(busca.toLowerCase())
+  );
+
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <Typography variant="h4" component="h1" gutterBottom align="center">
@@ -400,221 +407,258 @@ const Flora = () => {
           onChange={(e) => setBusca(e.target.value)}
           sx={{ mb: 2 }}
         />
-      </Box>
-
-      <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4, mb: 2 }}>
-        Plantas
-      </Typography>
-      <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr' }, gap: 4, mb: 6 }}>
-        {plantasFiltradas.map((planta) => (
-          <Card
-            key={planta.nome}
-            sx={{
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              transition: 'transform 0.2s',
-              '&:hover': {
-                transform: 'scale(1.02)',
-              },
+        
+        <ButtonGroup variant="contained" fullWidth sx={{ mb: 3 }}>
+          <Button 
+            onClick={() => setCategoriaAtiva('todas')}
+            sx={{ 
+              flex: 1,
+              bgcolor: categoriaAtiva === 'todas' ? 'primary.dark' : 'primary.main',
+              '&:hover': { bgcolor: 'primary.dark' }
             }}
           >
-            <Box sx={{ position: 'relative' }}>
-              <CardMedia
-                component="img"
-                height="300"
-                image={planta.imagens[currentImageIndices[planta.nome] || 0]}
-                alt={planta.nome}
-                sx={{ objectFit: 'cover' }}
-              />
-              {planta.imagens.length > 1 && (
-                <>
-                  <IconButton
-                    onClick={() => handlePrevImage(planta)}
-                    sx={{
-                      position: 'absolute',
-                      left: 8,
-                      top: '50%',
-                      transform: 'translateY(-50%)',
-                      bgcolor: 'rgba(255, 255, 255, 0.8)',
-                      '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
-                    }}
-                  >
-                    <ArrowBackIosNewIcon />
-                  </IconButton>
-                  <IconButton
-                    onClick={() => handleNextImage(planta)}
-                    sx={{
-                      position: 'absolute',
-                      right: 8,
-                      top: '50%',
-                      transform: 'translateY(-50%)',
-                      bgcolor: 'rgba(255, 255, 255, 0.8)',
-                      '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
-                    }}
-                  >
-                    <ArrowForwardIosIcon />
-                  </IconButton>
-                  <Box
-                    sx={{
-                      position: 'absolute',
-                      bottom: 8,
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                      display: 'flex',
-                      gap: 1,
-                    }}
-                  >
-                    {planta.imagens.map((_, index) => (
-                      <Box
-                        key={index}
-                        sx={{
-                          width: 8,
-                          height: 8,
-                          borderRadius: '50%',
-                          bgcolor: index === (currentImageIndices[planta.nome] || 0) ? 'primary.main' : 'rgba(255, 255, 255, 0.8)',
-                        }}
-                      />
-                    ))}
-                  </Box>
-                </>
-              )}
-            </Box>
-            <CardContent>
-              <Typography variant="h6" component="h2" gutterBottom>
-                {planta.nome}
-              </Typography>
-              <Typography variant="body2" color="text.secondary" paragraph>
-                {planta.descricao}
-              </Typography>
-              <Box sx={{ mt: 2 }}>
-                <Typography variant="subtitle2" color="primary" gutterBottom>
-                  Características:
-                </Typography>
-                <ul style={{ margin: 0, paddingLeft: '20px' }}>
-                  {planta.caracteristicas.map((caracteristica) => (
-                    <li key={caracteristica}>
-                      <Typography variant="body2">{caracteristica}</Typography>
-                    </li>
-                  ))}
-                </ul>
-              </Box>
-              <Box sx={{ mt: 'auto', pt: 2 }}>
-                <Typography variant="caption" color="primary">
-                  Categoria: {planta.categoria}
-                </Typography>
-              </Box>
-            </CardContent>
-          </Card>
-        ))}
-      </Box>
-
-      <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4, mb: 2 }}>
-        Aves
-      </Typography>
-      <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr' }, gap: 4 }}>
-        {aves.filter(ave =>
-          ave.nome.toLowerCase().includes(busca.toLowerCase()) ||
-          ave.descricao.toLowerCase().includes(busca.toLowerCase()) ||
-          ave.categoria.toLowerCase().includes(busca.toLowerCase())
-        ).map((ave) => (
-          <Card
-            key={ave.nome}
-            sx={{
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              transition: 'transform 0.2s',
-              '&:hover': {
-                transform: 'scale(1.02)',
-              },
+            Todas
+          </Button>
+          <Button 
+            onClick={() => setCategoriaAtiva('plantas')}
+            sx={{ 
+              flex: 1,
+              bgcolor: categoriaAtiva === 'plantas' ? 'primary.dark' : 'primary.main',
+              '&:hover': { bgcolor: 'primary.dark' }
             }}
           >
-            <Box sx={{ position: 'relative' }}>
-              <CardMedia
-                component="img"
-                height="300"
-                image={ave.imagens[currentImageIndices[ave.nome] || 0]}
-                alt={ave.nome}
-                sx={{ objectFit: 'cover' }}
-              />
-              {ave.imagens.length > 1 && (
-                <>
-                  <IconButton
-                    onClick={() => handlePrevImage(ave)}
-                    sx={{
-                      position: 'absolute',
-                      left: 8,
-                      top: '50%',
-                      transform: 'translateY(-50%)',
-                      bgcolor: 'rgba(255, 255, 255, 0.8)',
-                      '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
-                    }}
-                  >
-                    <ArrowBackIosNewIcon />
-                  </IconButton>
-                  <IconButton
-                    onClick={() => handleNextImage(ave)}
-                    sx={{
-                      position: 'absolute',
-                      right: 8,
-                      top: '50%',
-                      transform: 'translateY(-50%)',
-                      bgcolor: 'rgba(255, 255, 255, 0.8)',
-                      '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
-                    }}
-                  >
-                    <ArrowForwardIosIcon />
-                  </IconButton>
-                  <Box
-                    sx={{
-                      position: 'absolute',
-                      bottom: 8,
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                      display: 'flex',
-                      gap: 1,
-                    }}
-                  >
-                    {ave.imagens.map((_, index) => (
-                      <Box
-                        key={index}
-                        sx={{
-                          width: 8,
-                          height: 8,
-                          borderRadius: '50%',
-                          bgcolor: index === (currentImageIndices[ave.nome] || 0) ? 'primary.main' : 'rgba(255, 255, 255, 0.8)',
-                        }}
-                      />
-                    ))}
-                  </Box>
-                </>
-              )}
-            </Box>
-            <CardContent sx={{ flexGrow: 1 }}>
-              <Typography gutterBottom variant="h5" component="h2">
-                {ave.nome}
-              </Typography>
-              <Typography variant="body2" color="text.secondary" paragraph>
-                {ave.descricao}
-              </Typography>
-              <Typography variant="subtitle2" color="primary" gutterBottom>
-                {ave.categoria}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Características:
-              </Typography>
-              <List dense>
-                {ave.caracteristicas.map((caracteristica, index) => (
-                  <ListItem key={index}>
-                    <ListItemText primary={caracteristica} />
-                  </ListItem>
-                ))}
-              </List>
-            </CardContent>
-          </Card>
-        ))}
+            Plantas
+          </Button>
+          <Button 
+            onClick={() => setCategoriaAtiva('aves')}
+            sx={{ 
+              flex: 1,
+              bgcolor: categoriaAtiva === 'aves' ? 'primary.dark' : 'primary.main',
+              '&:hover': { bgcolor: 'primary.dark' }
+            }}
+          >
+            Aves
+          </Button>
+        </ButtonGroup>
       </Box>
+
+      {(categoriaAtiva === 'todas' || categoriaAtiva === 'plantas') && (
+        <>
+          <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4, mb: 2 }}>
+            Plantas
+          </Typography>
+          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr' }, gap: 4, mb: 6 }}>
+            {plantasFiltradas.map((planta) => (
+              <Card
+                key={planta.nome}
+                sx={{
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  transition: 'transform 0.2s',
+                  '&:hover': {
+                    transform: 'scale(1.02)',
+                  },
+                }}
+              >
+                <Box sx={{ position: 'relative' }}>
+                  <CardMedia
+                    component="img"
+                    height="300"
+                    image={planta.imagens[currentImageIndices[planta.nome] || 0]}
+                    alt={planta.nome}
+                    sx={{ objectFit: 'cover' }}
+                  />
+                  {planta.imagens.length > 1 && (
+                    <>
+                      <IconButton
+                        onClick={() => handlePrevImage(planta)}
+                        sx={{
+                          position: 'absolute',
+                          left: 8,
+                          top: '50%',
+                          transform: 'translateY(-50%)',
+                          bgcolor: 'rgba(255, 255, 255, 0.8)',
+                          '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
+                        }}
+                      >
+                        <ArrowBackIosNewIcon />
+                      </IconButton>
+                      <IconButton
+                        onClick={() => handleNextImage(planta)}
+                        sx={{
+                          position: 'absolute',
+                          right: 8,
+                          top: '50%',
+                          transform: 'translateY(-50%)',
+                          bgcolor: 'rgba(255, 255, 255, 0.8)',
+                          '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
+                        }}
+                      >
+                        <ArrowForwardIosIcon />
+                      </IconButton>
+                      <Box
+                        sx={{
+                          position: 'absolute',
+                          bottom: 8,
+                          left: '50%',
+                          transform: 'translateX(-50%)',
+                          display: 'flex',
+                          gap: 1,
+                        }}
+                      >
+                        {planta.imagens.map((_, index) => (
+                          <Box
+                            key={index}
+                            sx={{
+                              width: 8,
+                              height: 8,
+                              borderRadius: '50%',
+                              bgcolor: index === (currentImageIndices[planta.nome] || 0) ? 'primary.main' : 'rgba(255, 255, 255, 0.8)',
+                            }}
+                          />
+                        ))}
+                      </Box>
+                    </>
+                  )}
+                </Box>
+                <CardContent>
+                  <Typography variant="h6" component="h2" gutterBottom>
+                    {planta.nome}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" paragraph>
+                    {planta.descricao}
+                  </Typography>
+                  <Box sx={{ mt: 2 }}>
+                    <Typography variant="subtitle2" color="primary" gutterBottom>
+                      Características:
+                    </Typography>
+                    <ul style={{ margin: 0, paddingLeft: '20px' }}>
+                      {planta.caracteristicas.map((caracteristica) => (
+                        <li key={caracteristica}>
+                          <Typography variant="body2">{caracteristica}</Typography>
+                        </li>
+                      ))}
+                    </ul>
+                  </Box>
+                  <Box sx={{ mt: 'auto', pt: 2 }}>
+                    <Typography variant="caption" color="primary">
+                      Categoria: {planta.categoria}
+                    </Typography>
+                  </Box>
+                </CardContent>
+              </Card>
+            ))}
+          </Box>
+        </>
+      )}
+
+      {(categoriaAtiva === 'todas' || categoriaAtiva === 'aves') && (
+        <>
+          <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4, mb: 2 }}>
+            Aves
+          </Typography>
+          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr' }, gap: 4 }}>
+            {avesFiltradas.map((ave) => (
+              <Card
+                key={ave.nome}
+                sx={{
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  transition: 'transform 0.2s',
+                  '&:hover': {
+                    transform: 'scale(1.02)',
+                  },
+                }}
+              >
+                <Box sx={{ position: 'relative' }}>
+                  <CardMedia
+                    component="img"
+                    height="300"
+                    image={ave.imagens[currentImageIndices[ave.nome] || 0]}
+                    alt={ave.nome}
+                    sx={{ objectFit: 'cover' }}
+                  />
+                  {ave.imagens.length > 1 && (
+                    <>
+                      <IconButton
+                        onClick={() => handlePrevImage(ave)}
+                        sx={{
+                          position: 'absolute',
+                          left: 8,
+                          top: '50%',
+                          transform: 'translateY(-50%)',
+                          bgcolor: 'rgba(255, 255, 255, 0.8)',
+                          '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
+                        }}
+                      >
+                        <ArrowBackIosNewIcon />
+                      </IconButton>
+                      <IconButton
+                        onClick={() => handleNextImage(ave)}
+                        sx={{
+                          position: 'absolute',
+                          right: 8,
+                          top: '50%',
+                          transform: 'translateY(-50%)',
+                          bgcolor: 'rgba(255, 255, 255, 0.8)',
+                          '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
+                        }}
+                      >
+                        <ArrowForwardIosIcon />
+                      </IconButton>
+                      <Box
+                        sx={{
+                          position: 'absolute',
+                          bottom: 8,
+                          left: '50%',
+                          transform: 'translateX(-50%)',
+                          display: 'flex',
+                          gap: 1,
+                        }}
+                      >
+                        {ave.imagens.map((_, index) => (
+                          <Box
+                            key={index}
+                            sx={{
+                              width: 8,
+                              height: 8,
+                              borderRadius: '50%',
+                              bgcolor: index === (currentImageIndices[ave.nome] || 0) ? 'primary.main' : 'rgba(255, 255, 255, 0.8)',
+                            }}
+                          />
+                        ))}
+                      </Box>
+                    </>
+                  )}
+                </Box>
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {ave.nome}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" paragraph>
+                    {ave.descricao}
+                  </Typography>
+                  <Typography variant="subtitle2" color="primary" gutterBottom>
+                    {ave.categoria}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Características:
+                  </Typography>
+                  <List dense>
+                    {ave.caracteristicas.map((caracteristica, index) => (
+                      <ListItem key={index}>
+                        <ListItemText primary={caracteristica} />
+                      </ListItem>
+                    ))}
+                  </List>
+                </CardContent>
+              </Card>
+            ))}
+          </Box>
+        </>
+      )}
 
       <Box sx={{ mt: 6 }}>
         <Typography variant="h5" gutterBottom>
