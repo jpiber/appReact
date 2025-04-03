@@ -1,7 +1,7 @@
 {
-  "name": "Parque Itaimbe",
-  "short_name": "Parque Itaimbe",
-  "description": "Aplicativo do Parque Itaimbe",
+  "name": "Parque Itaimbé",
+  "short_name": "Parque Itaimbé",
+  "description": "Aplicativo do Parque Itaimbé",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
@@ -22,7 +22,7 @@
       "sizes": "1080x1920",
       "type": "image/png",
       "platform": "narrow",
-      "label": "Tela inicial do Parque Itaimbe"
+      "label": "Tela inicial do Parque Itaimbé"
     }
   ],
   "shortcuts": [
@@ -43,7 +43,7 @@
     {
       "name": "História",
       "short_name": "História",
-      "description": "História do Parque Itaimbe",
+      "description": "História do Parque Itaimbé",
       "url": "/historia",
       "icons": [{ "src": "/icon.svg", "sizes": "192x192" }]
     },
