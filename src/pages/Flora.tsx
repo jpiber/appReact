@@ -1,4 +1,4 @@
-import { Container, Typography, Card, CardContent, CardMedia, Box, TextField, IconButton } from '@mui/material';
+import { Container, Typography, Card, CardContent, CardMedia, Box, TextField, IconButton, List, ListItem, ListItemText } from '@mui/material';
 import { useState } from 'react';
 import ipe1 from '../images/ipeamarelo1.jpg.jpg';
 import ipe2 from '../images/ipeamarelo2.jpg.jpg';
@@ -45,8 +45,32 @@ import amoreira3 from '../images/amoreira3.jpg.jpeg';
 import hibisco1 from '../images/hibisco1.jpg.webp';
 import hibisco2 from '../images/hibisco2.jpg.webp';
 import hibisco3 from '../images/hibisco3.jpg.webp';
+import caturrita1 from '../images/caturrita1.jpg.jpg';
+import caturrita2 from '../images/caturrita2.jpg.jpg';
+import caturrita3 from '../images/caturrita3.jpg.jpg';
+import cardial1 from '../images/cardial1.jpg.jpg';
+import cardial2 from '../images/cardial2.jpg.jpg';
+import cardial3 from '../images/cardial3.jpg.jpg';
+import joaodebarro1 from '../images/joaodebarro1.jpg.jfif';
+import joaodebarro2 from '../images/joaodebarro2.jpg.jfif';
+import joaodebarro3 from '../images/joaodebarro3.jpg.jfif';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import bentivi1 from '../images/bentivi1.jpg.webp';
+import bentivi2 from '../images/bentivi2.jpg.webp';
+import bentivi3 from '../images/bentivi3.jpg.webp';
+import queroquero1 from '../images/queroquero1.jpg.jfif';
+import queroquero2 from '../images/queroquero2.jpg.jfif';
+import queroquero3 from '../images/queroquero3.jpg.jfif';
+import pombajuriti1 from '../images/pombajuriti1.jpg.jpg';
+import pombajuriti2 from '../images/pombajuriti2.jpg.jpg';
+import pombajuriti3 from '../images/pombajuriti3.jpg.jpg';
+import pardal1 from '../images/pardal1.jpg.jpg';
+import pardal2 from '../images/pardal2.jpg.jpg';
+import pardal3 from '../images/pardal3.jpg.webp';
+import beijaflor1 from '../images/beijaflor1.webp';
+import beijaflor2 from '../images/beijaflor2.jpg';
+import beijaflor3 from '../images/beijaflor3.jpg';
 
 const Flora = () => {
   const [busca, setBusca] = useState('');
@@ -235,6 +259,105 @@ const Flora = () => {
     }
   ];
 
+  const aves = [
+    {
+      nome: 'Caturrita',
+      descricao: 'A Caturrita é uma ave nativa da América do Sul, conhecida por sua plumagem verde vibrante e sua natureza social. No Parque Itaimbé, estas aves podem ser observadas em bandos, alimentando-se de frutos e sementes das árvores nativas.',
+      imagens: [caturrita1, caturrita2, caturrita3],
+      categoria: 'Aves',
+      caracteristicas: [
+        'Plumagem verde vibrante',
+        'Comportamento social',
+        'Alimentação frugívora',
+        'Vive em bandos'
+      ]
+    },
+    {
+      nome: 'Cardeal',
+      descricao: 'O Cardeal é uma ave conhecida por sua plumagem vermelha vibrante e seu canto melodioso. No Parque Itaimbé, estes pássaros podem ser observados em áreas abertas e bordas de mata, onde se alimentam de sementes e insetos.',
+      imagens: [cardial1, cardial2, cardial3],
+      categoria: 'Aves',
+      caracteristicas: [
+        'Plumagem vermelha vibrante',
+        'Canto melodioso',
+        'Alimentação onívora',
+        'Prefere áreas abertas'
+      ]
+    },
+    {
+      nome: 'João-de-barro',
+      descricao: 'O João-de-barro é uma ave conhecida por sua habilidade em construir ninhos de barro em formato de forno. No Parque Itaimbé, estas aves podem ser observadas construindo seus característicos ninhos em postes, árvores e estruturas. São monogâmicos e trabalham em conjunto para construir e manter seus ninhos.',
+      imagens: [joaodebarro1, joaodebarro2, joaodebarro3],
+      categoria: 'Aves',
+      caracteristicas: [
+        'Constrói ninhos de barro',
+        'Comportamento monogâmico',
+        'Alimentação insetívora',
+        'Nidificação em estruturas elevadas'
+      ]
+    },
+    {
+      nome: 'Bentevi',
+      descricao: 'O Bentevi é uma ave conhecida por seu canto característico e sua plumagem amarela e preta. No Parque Itaimbé, estes pássaros podem ser observados em áreas abertas e bordas de mata, onde se alimentam de insetos e pequenos frutos. São conhecidos por sua agilidade em voo e por sua capacidade de imitar outros pássaros.',
+      imagens: [bentivi1, bentivi2, bentivi3],
+      categoria: 'Aves',
+      caracteristicas: [
+        'Plumagem amarela e preta',
+        'Canto característico',
+        'Alimentação insetívora',
+        'Habilidade de imitação'
+      ]
+    },
+    {
+      nome: 'Quero-quero',
+      descricao: 'O Quero-quero é uma ave conhecida por seu canto característico que dá origem ao seu nome. No Parque Itaimbé, estas aves podem ser observadas em áreas abertas e gramados, onde se alimentam de insetos e pequenos invertebrados. São conhecidos por sua agressividade na defesa do território e dos filhotes.',
+      imagens: [queroquero1, queroquero2, queroquero3],
+      categoria: 'Aves',
+      caracteristicas: [
+        'Canto característico',
+        'Comportamento territorial',
+        'Alimentação insetívora',
+        'Defesa agressiva do ninho'
+      ]
+    },
+    {
+      nome: 'Pomba Juriti',
+      descricao: 'A Pomba Juriti é uma ave conhecida por sua plumagem marrom-avermelhada e seu canto suave e melancólico. No Parque Itaimbé, estas aves podem ser observadas em áreas de mata e bordas de floresta, onde se alimentam de sementes e pequenos frutos. São conhecidas por seu voo rápido e por sua capacidade de se camuflar entre a vegetação.',
+      imagens: [pombajuriti1, pombajuriti2, pombajuriti3],
+      categoria: 'Aves',
+      caracteristicas: [
+        'Plumagem marrom-avermelhada',
+        'Canto suave e melancólico',
+        'Alimentação granívora',
+        'Habilidade de camuflagem'
+      ]
+    },
+    {
+      nome: 'Pardal',
+      descricao: 'O Pardal é uma ave comum e adaptável, conhecida por sua plumagem marrom-acinzentada e seu comportamento social. No Parque Itaimbé, estes pássaros podem ser observados em grupos, alimentando-se de sementes e insetos. São conhecidos por sua capacidade de se adaptar a diferentes ambientes e por seu canto característico.',
+      imagens: [pardal1, pardal2, pardal3],
+      categoria: 'Aves',
+      caracteristicas: [
+        'Plumagem marrom-acinzentada',
+        'Comportamento social',
+        'Alimentação onívora',
+        'Alta adaptabilidade'
+      ]
+    },
+    {
+      nome: 'Beija-flor',
+      descricao: 'O Beija-flor é uma ave pequena e ágil, conhecida por sua capacidade de pairar no ar e seu bico longo e fino. No Parque Itaimbé, estes pássaros podem ser observados alimentando-se do néctar das flores, especialmente em áreas com flores coloridas. São conhecidos por sua plumagem iridescente e por seu voo rápido e preciso.',
+      imagens: [beijaflor1, beijaflor2, beijaflor3],
+      categoria: 'Aves',
+      caracteristicas: [
+        'Plumagem iridescente',
+        'Voo rápido e preciso',
+        'Alimentação nectarívora',
+        'Capacidade de pairar no ar'
+      ]
+    }
+  ];
+
   const handleNextImage = (planta: any) => {
     if (Array.isArray(planta.imagens)) {
       setCurrentImageIndices(prev => ({
@@ -262,27 +385,27 @@ const Flora = () => {
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <Typography variant="h4" component="h1" gutterBottom align="center">
-        Flora do Parque
+        Flora e Fauna do Parque
       </Typography>
       <Typography variant="subtitle1" color="text.secondary" paragraph align="center" sx={{ mb: 4 }}>
-        Conheça a diversidade de plantas e árvores que compõem o ecossistema do Parque Itaimbé
+        Conheça a diversidade de plantas e animais que compõem o ecossistema do Parque Itaimbé
       </Typography>
 
       <Box sx={{ mb: 4 }}>
         <TextField
           fullWidth
-          label="Buscar planta"
+          label="Buscar"
           variant="outlined"
           value={busca}
           onChange={(e) => setBusca(e.target.value)}
           sx={{ mb: 2 }}
         />
-        <Typography variant="body2" color="text.secondary" align="center">
-          {plantasFiltradas.length} {plantasFiltradas.length === 1 ? 'planta encontrada' : 'plantas encontradas'}
-        </Typography>
       </Box>
 
-      <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr' }, gap: 4 }}>
+      <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4, mb: 2 }}>
+        Plantas
+      </Typography>
+      <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr' }, gap: 4, mb: 6 }}>
         {plantasFiltradas.map((planta) => (
           <Card
             key={planta.nome}
@@ -381,6 +504,113 @@ const Flora = () => {
                   Categoria: {planta.categoria}
                 </Typography>
               </Box>
+            </CardContent>
+          </Card>
+        ))}
+      </Box>
+
+      <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 4, mb: 2 }}>
+        Aves
+      </Typography>
+      <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr' }, gap: 4 }}>
+        {aves.filter(ave =>
+          ave.nome.toLowerCase().includes(busca.toLowerCase()) ||
+          ave.descricao.toLowerCase().includes(busca.toLowerCase()) ||
+          ave.categoria.toLowerCase().includes(busca.toLowerCase())
+        ).map((ave) => (
+          <Card
+            key={ave.nome}
+            sx={{
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              transition: 'transform 0.2s',
+              '&:hover': {
+                transform: 'scale(1.02)',
+              },
+            }}
+          >
+            <Box sx={{ position: 'relative' }}>
+              <CardMedia
+                component="img"
+                height="300"
+                image={ave.imagens[currentImageIndices[ave.nome] || 0]}
+                alt={ave.nome}
+                sx={{ objectFit: 'cover' }}
+              />
+              {ave.imagens.length > 1 && (
+                <>
+                  <IconButton
+                    onClick={() => handlePrevImage(ave)}
+                    sx={{
+                      position: 'absolute',
+                      left: 8,
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      bgcolor: 'rgba(255, 255, 255, 0.8)',
+                      '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
+                    }}
+                  >
+                    <ArrowBackIosNewIcon />
+                  </IconButton>
+                  <IconButton
+                    onClick={() => handleNextImage(ave)}
+                    sx={{
+                      position: 'absolute',
+                      right: 8,
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      bgcolor: 'rgba(255, 255, 255, 0.8)',
+                      '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
+                    }}
+                  >
+                    <ArrowForwardIosIcon />
+                  </IconButton>
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      bottom: 8,
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      display: 'flex',
+                      gap: 1,
+                    }}
+                  >
+                    {ave.imagens.map((_, index) => (
+                      <Box
+                        key={index}
+                        sx={{
+                          width: 8,
+                          height: 8,
+                          borderRadius: '50%',
+                          bgcolor: index === (currentImageIndices[ave.nome] || 0) ? 'primary.main' : 'rgba(255, 255, 255, 0.8)',
+                        }}
+                      />
+                    ))}
+                  </Box>
+                </>
+              )}
+            </Box>
+            <CardContent sx={{ flexGrow: 1 }}>
+              <Typography gutterBottom variant="h5" component="h2">
+                {ave.nome}
+              </Typography>
+              <Typography variant="body2" color="text.secondary" paragraph>
+                {ave.descricao}
+              </Typography>
+              <Typography variant="subtitle2" color="primary" gutterBottom>
+                {ave.categoria}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Características:
+              </Typography>
+              <List dense>
+                {ave.caracteristicas.map((caracteristica, index) => (
+                  <ListItem key={index}>
+                    <ListItemText primary={caracteristica} />
+                  </ListItem>
+                ))}
+              </List>
             </CardContent>
           </Card>
         ))}
