@@ -1,20 +1,249 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
-    <link rel="apple-touch-icon" href="/icon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#2E7D32" />
     <meta name="description" content="Aplicativo do Parque Itaimbé" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Parque Itaimbé" />
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/webp" href="/icon.png.webp" />
     <title>Parque Itaimbé</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --text-color: #FFFFFF;
+        --card-bg: rgba(255, 255, 255, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        color: var(--text-color);
+        font-family: 'Poppins', sans-serif;
+        min-height: 100vh;
+        overflow-x: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .install-screen {
+        padding: 1rem;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+        text-align: center;
+      }
+
+      .install-screen::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.05);
+        z-index: -1;
+        border-radius: 15px;
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        font-weight: 700;
+        background: linear-gradient(to right, #fff, #e0e0e0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.4;
+        opacity: 0.9;
+        padding: 0 1rem;
+      }
+
+      .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin: 0 auto 1.5rem;
+        perspective: 1000px;
+        max-width: 400px;
+        padding: 0 1rem;
+      }
+
+      .feature {
+        background: var(--card-bg);
+        padding: 1rem;
+        border-radius: 12px;
+        width: 100px;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transform-style: preserve-3d;
+        transition: transform 0.3s ease;
+      }
+
+      .feature:hover {
+        transform: translateY(-5px) rotateX(5deg);
+      }
+
+      .feature-icon {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+
+      .feature-text {
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .install-button {
+        background: white;
+        color: #333;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        font-weight: 600;
+        position: relative;
+        overflow: hidden;
+        margin: 0 auto;
+        display: block;
+        width: 80%;
+        max-width: 300px;
+      }
+
+      .install-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transform: translateX(-100%);
+        transition: transform 0.6s ease;
+      }
+
+      .install-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .install-button:hover::before {
+        transform: translateX(100%);
+      }
+
+      .install-button:active {
+        transform: translateY(1px);
+      }
+
+      @media (max-width: 480px) {
+        .install-screen {
+          padding: 0.8rem;
+        }
+
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        .features {
+          gap: 0.8rem;
+        }
+
+        .feature {
+          width: 90px;
+          padding: 0.8rem;
+        }
+
+        .feature-icon {
+          font-size: 1.8rem;
+        }
+
+        .feature-text {
+          font-size: 0.8rem;
+        }
+
+        .install-button {
+          padding: 0.8rem 1.5rem;
+          font-size: 1rem;
+        }
+
+        .developer-credit {
+          font-size: 0.7rem;
+          padding: 3px 6px;
+        }
+      }
+
+      .developer-credit {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        font-size: 0.8rem;
+        opacity: 0.7;
+        color: var(--text-color);
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 4px 8px;
+        border-radius: 4px;
+        backdrop-filter: blur(2px);
+        pointer-events: auto;
+      }
+
+      .developer-credit:hover {
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.3);
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <div class="install-screen" id="installScreen" style="display: none;">
+      <h1>Parque Itaimbé</h1>
+      <p>Descubra a beleza natural do nosso parque diretamente no seu dispositivo</p>
+      
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">🌳</div>
+          <div class="feature-text">Flora Local</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🐦</div>
+          <div class="feature-text">Fauna Nativa</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📱</div>
+          <div class="feature-text">Offline</div>
+        </div>
+      </div>
+
+      <button class="install-button" id="installButton">
+        Instalar App
+      </button>
+    </div>
+
+    <a href="https://instagram.com/jean_piber" target="_blank" class="developer-credit">desenvolvedor: @jean_piber</a>
+
     <script type="module" src="/src/main.tsx"></script>
     <script>
       if ('serviceWorker' in navigator) {
@@ -30,21 +259,31 @@
       }
 
       let deferredPrompt;
+      const installButton = document.getElementById('installButton');
+      const installScreen = document.getElementById('installScreen');
+
       window.addEventListener('beforeinstallprompt', (e) => {
         e.preventDefault();
         deferredPrompt = e;
+        installScreen.style.display = 'block';
+        document.getElementById('root').style.display = 'none';
       });
 
-      window.addEventListener('load', () => {
+      installButton.addEventListener('click', async () => {
         if (deferredPrompt) {
           deferredPrompt.prompt();
-          deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-              console.log('Usuário aceitou a instalação do app');
-            }
-            deferredPrompt = null;
-          });
+          const { outcome } = await deferredPrompt.userChoice;
+          if (outcome === 'accepted') {
+            installButton.textContent = 'Instalado!';
+            installButton.disabled = true;
+          }
+          deferredPrompt = null;
         }
+      });
+
+      window.addEventListener('appinstalled', () => {
+        installButton.textContent = 'Instalado!';
+        installButton.disabled = true;
       });
     </script>
   </body>

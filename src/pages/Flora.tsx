@@ -448,27 +448,27 @@ const Flora = () => {
             Plantas
           </Typography>
           <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr' }, gap: 4, mb: 6 }}>
-            {plantasFiltradas.map((planta) => (
-              <Card
-                key={planta.nome}
-                sx={{
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  transition: 'transform 0.2s',
-                  '&:hover': {
-                    transform: 'scale(1.02)',
-                  },
-                }}
-              >
+        {plantasFiltradas.map((planta) => (
+          <Card
+            key={planta.nome}
+            sx={{
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              transition: 'transform 0.2s',
+              '&:hover': {
+                transform: 'scale(1.02)',
+              },
+            }}
+          >
                 <Box sx={{ position: 'relative' }}>
-                  <CardMedia
-                    component="img"
-                    height="300"
+            <CardMedia
+              component="img"
+              height="300"
                     image={planta.imagens[currentImageIndices[planta.nome] || 0]}
-                    alt={planta.nome}
-                    sx={{ objectFit: 'cover' }}
-                  />
+              alt={planta.nome}
+              sx={{ objectFit: 'cover' }}
+            />
                   {planta.imagens.length > 1 && (
                     <>
                       <IconButton
@@ -522,34 +522,34 @@ const Flora = () => {
                     </>
                   )}
                 </Box>
-                <CardContent>
-                  <Typography variant="h6" component="h2" gutterBottom>
-                    {planta.nome}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary" paragraph>
-                    {planta.descricao}
-                  </Typography>
-                  <Box sx={{ mt: 2 }}>
-                    <Typography variant="subtitle2" color="primary" gutterBottom>
-                      Características:
-                    </Typography>
-                    <ul style={{ margin: 0, paddingLeft: '20px' }}>
-                      {planta.caracteristicas.map((caracteristica) => (
-                        <li key={caracteristica}>
-                          <Typography variant="body2">{caracteristica}</Typography>
-                        </li>
-                      ))}
-                    </ul>
-                  </Box>
-                  <Box sx={{ mt: 'auto', pt: 2 }}>
-                    <Typography variant="caption" color="primary">
-                      Categoria: {planta.categoria}
-                    </Typography>
-                  </Box>
-                </CardContent>
-              </Card>
-            ))}
-          </Box>
+            <CardContent>
+              <Typography variant="h6" component="h2" gutterBottom>
+                {planta.nome}
+              </Typography>
+              <Typography variant="body2" color="text.secondary" paragraph>
+                {planta.descricao}
+              </Typography>
+              <Box sx={{ mt: 2 }}>
+                <Typography variant="subtitle2" color="primary" gutterBottom>
+                  Características:
+                </Typography>
+                <ul style={{ margin: 0, paddingLeft: '20px' }}>
+                  {planta.caracteristicas.map((caracteristica) => (
+                    <li key={caracteristica}>
+                      <Typography variant="body2">{caracteristica}</Typography>
+                    </li>
+                  ))}
+                </ul>
+              </Box>
+              <Box sx={{ mt: 'auto', pt: 2 }}>
+                <Typography variant="caption" color="primary">
+                  Categoria: {planta.categoria}
+                </Typography>
+              </Box>
+            </CardContent>
+          </Card>
+        ))}
+      </Box>
         </>
       )}
 

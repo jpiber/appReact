@@ -32,7 +32,6 @@ export function InstallScreen() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#2E7D32] text-white p-4">
-      <img src="/icon.svg" alt="Parque Itaimbé" className="w-32 h-32 mb-8" />
       <h1 className="text-3xl font-bold mb-4">Parque Itaimbé</h1>
       <p className="text-center mb-8">
         Para usar o aplicativo, por favor instale-o na sua tela inicial.

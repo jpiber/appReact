@@ -1,58 +1,52 @@
 {
   "name": "Parque Itaimbé",
-  "short_name": "Parque Itaimbé",
+  "short_name": "Itaimbé",
   "description": "Aplicativo do Parque Itaimbé",
   "start_url": "/",
   "display": "standalone",
-  "orientation": "portrait",
   "background_color": "#2E7D32",
   "theme_color": "#2E7D32",
-  "categories": ["nature", "parks", "tourism"],
-  "icons": [
-    {
-      "src": "/icon.svg",
-      "sizes": "192x192",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
-    }
-  ],
+  "orientation": "portrait",
+  "categories": ["nature", "travel", "education"],
+  "lang": "pt-BR",
+  "dir": "ltr",
   "screenshots": [
     {
-      "src": "/screenshot1.png",
+      "src": "/screenshots/screenshot1.webp",
       "sizes": "1080x1920",
-      "type": "image/png",
+      "type": "image/webp",
       "platform": "narrow",
-      "label": "Tela inicial do Parque Itaimbé"
+      "label": "Tela inicial do aplicativo"
+    },
+    {
+      "src": "/screenshots/screenshot2.webp",
+      "sizes": "1080x1920",
+      "type": "image/webp",
+      "platform": "narrow",
+      "label": "Explorando a flora"
+    },
+    {
+      "src": "/screenshots/screenshot3.webp",
+      "sizes": "1080x1920",
+      "type": "image/webp",
+      "platform": "narrow",
+      "label": "Descobrindo a fauna"
     }
   ],
   "shortcuts": [
     {
-      "name": "Início",
-      "short_name": "Início",
-      "description": "Voltar para a página inicial",
-      "url": "/",
-      "icons": [{ "src": "/icon.svg", "sizes": "192x192" }]
-    },
-    {
-      "name": "Flora",
+      "name": "Flora Local",
       "short_name": "Flora",
-      "description": "Conheça a flora do parque",
+      "description": "Explore a flora do parque",
       "url": "/flora",
-      "icons": [{ "src": "/icon.svg", "sizes": "192x192" }]
+      "icons": []
     },
     {
-      "name": "História",
-      "short_name": "História",
-      "description": "História do Parque Itaimbé",
-      "url": "/historia",
-      "icons": [{ "src": "/icon.svg", "sizes": "192x192" }]
-    },
-    {
-      "name": "Contato",
-      "short_name": "Contato",
-      "description": "Entre em contato",
-      "url": "/contato",
-      "icons": [{ "src": "/icon.svg", "sizes": "192x192" }]
+      "name": "Fauna Nativa",
+      "short_name": "Fauna",
+      "description": "Conheça a fauna do parque",
+      "url": "/fauna",
+      "icons": []
     }
   ]
 } 

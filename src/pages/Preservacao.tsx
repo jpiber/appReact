@@ -154,37 +154,6 @@ const Preservacao = () => {
           </Card>
         ))}
       </Box>
-
-      <Box sx={{ mt: 6, p: 3, bgcolor: 'background.paper', borderRadius: 2, boxShadow: 1 }}>
-        <Typography variant="h5" gutterBottom>
-          O que o Parque Itaimbé faz pela preservação?
-        </Typography>
-        <Typography paragraph>
-          O Parque Itaimbé desenvolve diversas ações para preservar o meio ambiente e educar os visitantes sobre a importância da conservação. 
-          Nossas iniciativas incluem:
-        </Typography>
-        <List>
-          <ListItem>
-            <ListItemText primary="🌿 Manutenção de áreas verdes e biodiversidade local" />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="📚 Programas de educação ambiental para escolas e visitantes" />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="🌱 Projetos de reflorestamento e recuperação de áreas degradadas" />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="♻️ Sistema de coleta seletiva de resíduos" />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="🦋 Preservação de espécies nativas da flora e fauna" />
-          </ListItem>
-        </List>
-        <Typography paragraph sx={{ mt: 2 }}>
-          Junte-se a nós nessa missão de preservar o meio ambiente para as gerações futuras. 
-          Cada pequena ação conta e, juntos, podemos fazer a diferença! 🌍
-        </Typography>
-      </Box>
     </Container>
   );
 };
