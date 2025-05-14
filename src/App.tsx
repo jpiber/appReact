@@ -11,6 +11,7 @@ import Sobre from './pages/Sobre';
 import Avaliacoes from './pages/Avaliacoes';
 import Preservacao from './pages/Preservacao';
 import { InstallScreen } from './components/InstallScreen';
+import { DeveloperLink } from './components/DeveloperLink';
 
 // Declaração de tipo para a propriedade standalone
 declare global {
@@ -86,9 +87,18 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        <div className="min-h-screen bg-gray-100">
+        <div style={{ 
+          display: 'flex', 
+          flexDirection: 'column', 
+          minHeight: '100vh',
+          position: 'relative'
+        }}>
           <Navbar />
-          <main className="container mx-auto px-4 py-8">
+          <main style={{ 
+            flex: 1,
+            padding: '20px',
+            marginTop: '64px' // Altura da AppBar
+          }}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/flora" element={<Flora />} />
@@ -99,6 +109,7 @@ function App() {
               <Route path="/preservacao" element={<Preservacao />} />
             </Routes>
           </main>
+          <DeveloperLink />
         </div>
       </Router>
     </ThemeProvider>

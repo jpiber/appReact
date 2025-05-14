@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import {
   AppBar,
   Toolbar,
@@ -15,12 +15,18 @@ import {
   useMediaQuery,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import parkIcon from '../images/Park-icon.webp';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import landscapeIcon from '../images/landscape.png';
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const navigate = useNavigate();
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
   const menuItems = [
     { text: 'Início', path: '/' },
@@ -64,8 +70,20 @@ const Navbar = () => {
     <AppBar position="static">
       <Toolbar>
         <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
+          <IconButton
+            onClick={handleGoBack}
+            sx={{ 
+              color: 'white',
+              mr: 1,
+              '&:hover': {
+                bgcolor: 'rgba(255, 255, 255, 0.1)',
+              }
+            }}
+          >
+            <ArrowBackIcon />
+          </IconButton>
           <img 
-            src={parkIcon}
+            src={landscapeIcon}
             alt="Ícone do Parque" 
             style={{ 
               width: '32px', 

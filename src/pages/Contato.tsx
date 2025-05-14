@@ -6,7 +6,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 const Contato = () => {
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
+    <Container maxWidth="lg">
       <Typography variant="h4" component="h1" gutterBottom>
         Contato
       </Typography>
@@ -14,7 +14,8 @@ const Contato = () => {
       <Box sx={{ 
         display: 'grid', 
         gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
-        gap: 4
+        gap: 4,
+        mt: 2
       }}>
         <Paper sx={{ p: 3, height: '100%' }}>
           <Typography variant="h6" gutterBottom>
