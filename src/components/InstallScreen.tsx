@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Box, Typography, Button, Paper, Stack } from '@mui/material';
+import { Box, Typography, Button, Paper, Stack, Snackbar, Alert } from '@mui/material';
 import ParkIcon from '@mui/icons-material/Park';
 import PetsIcon from '@mui/icons-material/Pets';
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
@@ -8,6 +8,7 @@ import { DeveloperLink } from './DeveloperLink';
 export function InstallScreen() {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [isInstallable, setIsInstallable] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (e: Event) => {
@@ -16,10 +17,16 @@ export function InstallScreen() {
       setIsInstallable(true);
     };
 
+    const handleAppInstalled = () => {
+      setShowSuccessMessage(true);
+    };
+
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    window.addEventListener('appinstalled', handleAppInstalled);
 
     return () => {
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      window.removeEventListener('appinstalled', handleAppInstalled);
     };
   }, []);
 
@@ -108,6 +115,21 @@ export function InstallScreen() {
         )}
       </Paper>
       <DeveloperLink />
+
+      <Snackbar
+        open={showSuccessMessage}
+        autoHideDuration={6000}
+        onClose={() => setShowSuccessMessage(false)}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert 
+          onClose={() => setShowSuccessMessage(false)} 
+          severity="success" 
+          sx={{ width: '100%' }}
+        >
+          Aplicativo instalado com sucesso! Agora você pode acessá-lo pela tela inicial.
+        </Alert>
+      </Snackbar>
     </Box>
   );
 } 
